@@ -47,7 +47,7 @@
 	@extend %ctabs-panel-list;
 }
 .ctabs-panel {
-	position: absolute;
+	/* for accessibility reasons, `position: absolute` is added later by plugin */
 	top: 0;
 	left: 0;
 
@@ -91,6 +91,7 @@
 %ctabs-panel-list {
 	border-top: 1px solid #ccc;
 }
+
 %ctabs-panel {
 	width: 100%;
 	padding-top: .5em;

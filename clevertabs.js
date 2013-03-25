@@ -26,6 +26,8 @@
 			$allTabs.each(function (i) {
 				var $link = $('a', $(this));
 				var tabId = $link.attr('href');
+				// Manually add absolute positioning so that non-JS users don't get overlapping panels.
+				$allPanels.eq(i).css({position: 'absolute'});
 
 				$link.on('click', function () {
 					// Reset tabs.
