@@ -1,5 +1,5 @@
 /*!
- * CleverTabs 0.5
+ * CleverTabs 1.0
  * Copyright (c) 2010 Scott Vivian
  * Licensed under GPL: http://www.gnu.org/licenses/gpl.html
 */

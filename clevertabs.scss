@@ -4,7 +4,7 @@
 \*-------------------------*/
 
 .ctabs-wrapper {
-	margin-bottom: 1em;
+	@extend %ctabs-wrapper;
 }
 
 /* basic reset */
@@ -64,6 +64,10 @@
 |	THEME STYLES
 |	Modify these at will
 \*-------------------------*/
+
+%ctabs-wrapper {
+	margin-bottom: 1em;
+}
 
 %ctabs-tab {
 	border: 1px solid #ccc;
