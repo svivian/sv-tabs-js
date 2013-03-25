@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery CleverTabs</title>
+<link rel="stylesheet" href="clevertabs.min.css">
+<style>
+body {
+	background-color: #555550;
+	margin: 0;
+	padding: 50px;
+	font: 14px/1.5 Ubuntu, sans-serif;
+}
+.main {
+	width: 600px;
+	min-height: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	border: 2px solid #333;
+}
+h1 {
+	margin: 0 0 1em;
+}
+</style>
+</head>
+
+<body>
+
+<div class="main">
+	<h1>jQuery CleverTabs demo</h1>
+
+	<div class="ctabs-wrapper">
+		<ul class="ctabs-tab-list">
+			<li class="ctabs-tab"><a href="#tab1">Tab 1</a></li>
+			<li class="ctabs-tab"><a href="#tab2">The second tab</a></li>
+			<li class="ctabs-tab"><a href="#tab3">3</a></li>
+		</ul>
+		<ul class="ctabs-panel-list">
+			<li id="tab2" class="ctabs-panel">I'll be whatever I wanna do.</li>
+			<li id="tab3" class="ctabs-panel">Interesting. No, wait, the other thing: tedious. Shut up and take my money! OK, if everyone's finished being stupid. And I'd do it again! And perhaps a third time! But that would be it. Throw her in the brig. I'm just glad my fat, ugly mama isn't alive to see this day. File not found. Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel ways about stuff.</li>
+			<li id="tab1" class="ctabs-panel">You may have to metaphorically make a deal with the devil. And by "devil", I mean Robot Devil. And by "metaphorically", I mean get your coat.</li>
+		</ul>
+	</div>
+
+	<p>Some content after the tabs.</p>
+</div>
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="clevertabs.js"></script>
+<script>
+$(function () {
+	$('.ctabs-wrapper').clevertabs();
+});
+</script>
+
+</body>
+</html>

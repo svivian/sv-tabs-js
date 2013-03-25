@@ -4,7 +4,12 @@
 |	Modify these at will
 \*-------------------------*/
 
-
+%ctabs-tab {
+	border: 1px solid #ccc;
+	background-color: #eee;
+	text-align: center;
+	border-radius: 4px 4px 0 0;
+}
 
 
 
@@ -44,11 +49,7 @@
 	top: 1px;
 	z-index: 10;
 
-	/* tab chrome */
-	border: 1px solid #ccc;
-	background-color: #eee;
-	text-align: center;
-	border-radius: 4px 4px 0 0;
+	@extend %ctabs-tab;
 }
 .ctabs-tab:hover {
 	background-color: #ddd;
