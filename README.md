@@ -28,4 +28,4 @@ A few notes:
 - The first tab in the list is the one set to be active initially.
 - The anchor link on a tab must target an ID of one of the panels, i.e. `<a href="#mytabname">` would target `<li id="mytabname">`.
 - The panels can appear in any order in the source. The anchor will show the tab with the corresponding ID, wherever it is.
-- The CSS is generated from the SASS file `clevertabs.scss`. Custom theme styles can be added in the placeholder selectors.
+- The CSS is generated from the SASS file `clevertabs.scss`. Custom theme styles can be added in the placeholder selectors at the bottom of the file.

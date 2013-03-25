@@ -46,7 +46,6 @@
 				if ( ht > maxHeight )
 					maxHeight = ht;
 			});
-
 			$('.ctabs-panel-list', $wrapper).height(maxHeight);
 
 			// Set first tab to active.
