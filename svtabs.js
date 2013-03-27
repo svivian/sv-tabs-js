@@ -1,17 +1,13 @@
-/*!
- * CleverTabs 1.0
- * Copyright (c) 2010 Scott Vivian
- * Licensed under GPL: http://www.gnu.org/licenses/gpl.html
-*/
+
 (function ($) {
-	$.fn.clevertabs = function (options) {
+	$.fn.svTabs = function (options) {
 		return this.each(function () {
 			options = $.extend({/*defaults*/}, options);
 
 			// Cache jQuery objects.
 			var $wrapper = $(this);
-			var $allTabs = $('.ctabs-tab', $wrapper);
-			var $allPanels = $('.ctabs-panel', $wrapper);
+			var $allTabs = $('.svtabs-tab', $wrapper);
+			var $allPanels = $('.svtabs-panel', $wrapper);
 
 			// Make sure tabs and panels match.
 			var nt = $allTabs.length;
@@ -31,11 +27,11 @@
 
 				$link.on('click', function () {
 					// Reset tabs.
-					$allTabs.removeClass('ctabs-active');
-					$allPanels.addClass('ctabs-hidden');
+					$allTabs.removeClass('svtabs-active');
+					$allPanels.addClass('svtabs-hidden');
 					// Set target tab as active.
-					$allTabs.eq(i).addClass('ctabs-active');
-					$(tabId).removeClass('ctabs-hidden');
+					$allTabs.eq(i).addClass('svtabs-active');
+					$(tabId).removeClass('svtabs-hidden');
 
 					return false;
 				});
@@ -48,7 +44,7 @@
 				if ( ht > maxHeight )
 					maxHeight = ht;
 			});
-			$('.ctabs-panel-list', $wrapper).height(maxHeight);
+			$('.svtabs-panel-list', $wrapper).height(maxHeight);
 
 			// Set first tab to active.
 			$allTabs.eq(0).find('a').click();

@@ -3,28 +3,28 @@
 |	Here be dragons!
 \*-------------------------*/
 
-.ctabs-wrapper {
-	@extend %ctabs-wrapper;
+.svtabs-wrapper {
+	@extend %svtabs-wrapper;
 }
 
 /* basic reset */
-.ctabs-tab-list,
-.ctabs-panel-list,
-.ctabs-tab,
-.ctabs-panel {
+.svtabs-tab-list,
+.svtabs-panel-list,
+.svtabs-tab,
+.svtabs-panel {
 	display: block;
 	margin: 0;
 	padding: 0;
 }
 
 /* micro clearfix */
-.ctabs-tab-list:after {
+.svtabs-tab-list:after {
 	display: block;
 	clear: both;
 	content: " ";
 }
 
-.ctabs-tab {
+.svtabs-tab {
 	float: left;
 	list-style: none;
 	margin-left: 4px;
@@ -33,28 +33,28 @@
 	top: 1px;
 	z-index: 5;
 
-	@extend %ctabs-tab;
+	@extend %svtabs-tab;
 
 	> a {
 		display: block;
 	}
 }
 
-.ctabs-panel-list {
+.svtabs-panel-list {
 	position: relative;
 	z-index: 4;
 
-	@extend %ctabs-panel-list;
+	@extend %svtabs-panel-list;
 }
-.ctabs-panel {
+.svtabs-panel {
 	/* for accessibility reasons, `position: absolute` is added later by plugin */
 	top: 0;
 	left: 0;
 
-	@extend %ctabs-panel;
+	@extend %svtabs-panel;
 }
 
-.ctabs-hidden {
+.svtabs-hidden {
 	visibility: hidden;
 }
 
@@ -65,11 +65,11 @@
 |	Modify these at will
 \*-------------------------*/
 
-%ctabs-wrapper {
+%svtabs-wrapper {
 	margin-bottom: 1em;
 }
 
-%ctabs-tab {
+%svtabs-tab {
 	border: 1px solid #ccc;
 	background-color: #eee;
 	text-align: center;
@@ -79,7 +79,7 @@
 		background-color: #ddd;
 	}
 
-	&.ctabs-active {
+	&.svtabs-active {
 		background-color: #fff;
 		border-bottom-color: #fff;
 	}
@@ -92,11 +92,11 @@
 	}
 }
 
-%ctabs-panel-list {
+%svtabs-panel-list {
 	border-top: 1px solid #ccc;
 }
 
-%ctabs-panel {
+%svtabs-panel {
 	width: 100%;
 	padding-top: .5em;
 }
