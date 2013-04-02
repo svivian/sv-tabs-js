@@ -1,4 +1,6 @@
-
+/*
+	svTabs v1.0 - jQuery tabs plugin
+*/
 (function ($) {
 	$.fn.svTabs = function (options) {
 		return this.each(function () {
