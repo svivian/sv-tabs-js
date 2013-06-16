@@ -1,5 +1,5 @@
 /*
-	svTabs v1.0 - jQuery tabs plugin
+	svTabs v1.1 - jQuery tabs plugin
 */
 (function ($) {
 	$.fn.svTabs = function (options) {
@@ -8,8 +8,8 @@
 
 			// Cache jQuery objects.
 			var $wrapper = $(this);
-			var $allTabs = $('.svtabs-tab', $wrapper);
-			var $allPanels = $('.svtabs-panel', $wrapper);
+			var $allTabs = $wrapper.find('> .svtabs-tab-list > .svtabs-tab');
+			var $allPanels = $wrapper.find('> .svtabs-panel-list > .svtabs-panel');
 
 			// Make sure tabs and panels match.
 			var nt = $allTabs.length;
