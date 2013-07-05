@@ -17,11 +17,15 @@
 	padding: 0;
 }
 
-/* micro clearfix */
-.svtabs-tab-list:after {
-	display: block;
-	clear: both;
-	content: " ";
+.svtabs-tab-list {
+	@extend %svtabs-tab-list;
+
+	/* micro clearfix */
+	&:after {
+		display: block;
+		clear: both;
+		content: " ";
+	}
 }
 
 .svtabs-tab {
@@ -67,6 +71,12 @@
 
 %svtabs-wrapper {
 	margin-bottom: 1em;
+}
+
+%svtabs-tab-list {
+	&.svtabs-indent {
+		margin-left: 40px;
+	}
 }
 
 %svtabs-tab {
