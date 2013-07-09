@@ -1,10 +1,8 @@
-/*
-	svTabs v1.1 - jQuery tabs plugin
-*/
+/* svTabs v1.2 - jQuery tabs plugin */
 (function ($) {
 	$.fn.svTabs = function (options) {
 		return this.each(function () {
-			options = $.extend({/*defaults*/}, options);
+			options = $.extend({hideSingle: false}, options);
 
 			// Cache jQuery objects.
 			var $wrapper = $(this);
@@ -12,10 +10,10 @@
 			var $allPanels = $wrapper.find('> .svtabs-panel-list > .svtabs-panel');
 
 			// Make sure tabs and panels match.
-			var nt = $allTabs.length;
-			var np = $allPanels.length;
-			if ( nt != np ) {
-				$.error('Number of tabs ('+nt+') does not match number of panels ('+np+')');
+			var numTabs = $allTabs.length;
+			var numPanels = $allPanels.length;
+			if ( numTabs != numPanels ) {
+				$.error('Number of tabs ('+numTabs+') does not match number of panels ('+numPanels+')');
 				return;
 			}
 
@@ -30,10 +28,10 @@
 				$link.on('click', function () {
 					// Reset tabs.
 					$allTabs.removeClass('svtabs-active');
-					$allPanels.addClass('svtabs-hidden');
+					$allPanels.addClass('svtabs-panel-hidden');
 					// Set target tab as active.
 					$allTabs.eq(i).addClass('svtabs-active');
-					$(tabId).removeClass('svtabs-hidden');
+					$(tabId).removeClass('svtabs-panel-hidden');
 
 					return false;
 				});
@@ -50,6 +48,10 @@
 
 			// Set first tab to active.
 			$allTabs.eq(0).find('a').click();
+
+			if ( numTabs == 1 && options.hideSingle ) {
+				$wrapper.addClass('svtabs-onetab');
+			}
 
 		});
 	};
