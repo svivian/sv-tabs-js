@@ -14,7 +14,7 @@
 			// Make sure tabs and panels match.
 			var nt = $allTabs.length;
 			var np = $allPanels.length;
-			if ( nt != np ) {
+			if ( nt !== np ) {
 				$.error('Number of tabs ('+nt+') does not match number of panels ('+np+')');
 				return;
 			}
@@ -43,8 +43,9 @@
 			var maxHeight = 0;
 			$allPanels.each(function (i) {
 				var ht = $(this).outerHeight();
-				if ( ht > maxHeight )
+				if ( ht > maxHeight ) {
 					maxHeight = ht;
+				}
 			});
 			$('.svtabs-panel-list', $wrapper).height(maxHeight);
 
