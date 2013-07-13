@@ -1,4 +1,4 @@
-/* svTabs v1.2 - jQuery tabs plugin */
+/* svTabs v1.3 - jQuery tabs plugin */
 (function ($) {
 	$.fn.svTabs = function (options) {
 		return this.each(function () {
@@ -37,23 +37,25 @@
 				});
 			});
 
-			// Calculate tallest tab and sets panel wrapper to that height.
-			var maxHeight = 0;
-			$allPanels.each(function (i) {
-				var ht = $(this).outerHeight();
-				if ( ht > maxHeight ) {
-					maxHeight = ht;
-				}
-			});
-			$('.svtabs-panel-list', $wrapper).height(maxHeight);
-
-			// Set first tab to active.
-			$allTabs.eq(0).find('a').click();
-
+			// Hide tab if only one
 			if ( numTabs == 1 && options.hideSingle ) {
 				$wrapper.addClass('svtabs-onetab');
 			}
 
+			// Calculate tallest tab and sets panel wrapper to that height.
+			var maxHeight = 0;
+			$allPanels.each(function (i) {
+				var ht = $(this).outerHeight();
+				console.log(ht);
+				if ( ht > maxHeight ) {
+					maxHeight = ht;
+				}
+			});
+			console.log('max:' + maxHeight);
+			$wrapper.find('>.svtabs-panel-list').height(maxHeight);
+
+			// Set first tab to active.
+			$allTabs.eq(0).find('a').click();
 		});
 	};
 })(jQuery);
