@@ -46,12 +46,10 @@
 			var maxHeight = 0;
 			$allPanels.each(function (i) {
 				var ht = $(this).outerHeight();
-				console.log(ht);
 				if ( ht > maxHeight ) {
 					maxHeight = ht;
 				}
 			});
-			console.log('max:' + maxHeight);
 			$wrapper.find('>.svtabs-panel-list').height(maxHeight);
 
 			// Set first tab to active.
