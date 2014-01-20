@@ -1,8 +1,11 @@
-/* svTabs v1.3 - jQuery tabs plugin */
+/* svTabs v1.4 - jQuery tabs plugin */
 (function ($) {
 	$.fn.svTabs = function (options) {
 		return this.each(function () {
-			options = $.extend({hideSingle: false}, options);
+			options = $.extend({
+				hideSingle: false,
+				equalHeight: false
+			}, options);
 
 			// Cache jQuery objects.
 			var $wrapper = $(this);
@@ -22,10 +25,12 @@
 			$allTabs.each(function (i) {
 				var $link = $('a', $(this));
 				var tabId = $link.attr('href');
-				// Manually add absolute positioning so that non-JS users don't get overlapping panels.
-				$allPanels.eq(i).css({position: 'absolute'});
 
-				$link.on('click', function () {
+				// Manually add absolute positioning so that non-JS users don't get overlapping panels.
+				if ( options.equalHeight )
+					$allPanels.eq(i).css({position: 'absolute'});
+
+				$link.on('click', function (ev) {
 					// Reset tabs.
 					$allTabs.removeClass('svtabs-active');
 					$allPanels.addClass('svtabs-panel-hidden');
@@ -33,7 +38,7 @@
 					$allTabs.eq(i).addClass('svtabs-active');
 					$(tabId).removeClass('svtabs-panel-hidden');
 
-					return false;
+					ev.preventDefault();
 				});
 			});
 
@@ -43,14 +48,16 @@
 			}
 
 			// Calculate tallest tab and sets panel wrapper to that height.
-			var maxHeight = 0;
-			$allPanels.each(function (i) {
-				var ht = $(this).outerHeight();
-				if ( ht > maxHeight ) {
-					maxHeight = ht;
-				}
-			});
-			$wrapper.find('>.svtabs-panel-list').height(maxHeight);
+			if ( options.equalHeight ) {
+				var maxHeight = 0;
+				$allPanels.each(function (i) {
+					var ht = $(this).outerHeight();
+					if ( ht > maxHeight ) {
+						maxHeight = ht;
+					}
+				});
+				$wrapper.find('>.svtabs-panel-list').height(maxHeight);
+			}
 
 			// Set first tab to active.
 			$allTabs.eq(0).find('a').click();

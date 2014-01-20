@@ -29,4 +29,5 @@ A few notes:
 - The anchor link on a tab must target an ID of one of the panels, i.e. `<a href="#mytabname">` would target `<li id="mytabname">`.
 - The panels can appear in any order in the source. The anchor will show the tab with the corresponding ID, wherever it is.
 - The CSS is generated from the SASS file `svtabs.scss`. Custom theme styles can be added in the placeholder selectors at the bottom of the file.
-- The `hideSingle` option will hide the tab if there is only one (useful when tabs are auto-generated). Simply pass `{hideSingle: true}` into the `svTabs()` function.
+- The `hideSingle` option will hide the tab if there is only one (useful when tabs are auto-generated). Pass `{hideSingle: true}` into the `svTabs()` function.
+- The `equalHeight` option will set all tabs to be the same height; this prevents subsequent content from shifting up and down when tabs are clicked. Pass `{equalHeight: true}` into the `svTabs()` function.

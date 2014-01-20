@@ -1,3 +1,6 @@
+$spacing-unit:      15px;
+$base-border:       1px solid #ccc !default;
+
 /*-------------------------*\
 |	CORE STYLES
 |	Here be dragons!
@@ -51,6 +54,7 @@
 	@extend %svtabs-panel-list;
 }
 .svtabs-panel {
+	list-style: none;
 	/* for accessibility reasons, `position: absolute` is added later by plugin */
 	top: 0;
 	left: 0;
@@ -58,10 +62,17 @@
 	@extend %svtabs-panel;
 }
 
-.svtabs-hidden {
-	visibility: hidden;
+.svtabs-panel-hidden {
+	display: none;
 }
-
+.svtabs-onetab {
+	> .svtabs-tab-list {
+		display: none;
+	}
+	> .svtabs-panel-list {
+		border-top: 0;
+	}
+}
 
 
 /*-------------------------*\
@@ -80,7 +91,7 @@
 }
 
 %svtabs-tab {
-	border: 1px solid #ccc;
+	border: $base-border;
 	background-color: #eee;
 	text-align: center;
 	border-radius: 4px 4px 0 0;
@@ -100,13 +111,20 @@
 		color: #666;
 		text-decoration: none;
 	}
+
+	&.svtabs-tab-small {
+		font-size: 11px;
+		> a {
+			padding: 2px 8px;
+		}
+	}
 }
 
 %svtabs-panel-list {
-	border-top: 1px solid #ccc;
+	border-top: $base-border;
 }
 
 %svtabs-panel {
 	width: 100%;
-	padding-top: .5em;
+	padding-top: $spacing-unit;
 }
