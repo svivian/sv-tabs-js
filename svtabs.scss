@@ -1,5 +1,7 @@
-$spacing-unit:      15px;
-$base-border:       1px solid #ccc !default;
+$spacing-unit:  15px;
+$base-border:   1px solid #ccc !default;
+$tab-bg-on:     #fff;
+$tab-bg-off:    #eee;
 
 /*-------------------------*\
 |	CORE STYLES
@@ -92,7 +94,7 @@ $base-border:       1px solid #ccc !default;
 
 %svtabs-tab {
 	border: $base-border;
-	background-color: #eee;
+	background-color: $tab-bg-off;
 	text-align: center;
 	border-radius: 4px 4px 0 0;
 
@@ -101,8 +103,8 @@ $base-border:       1px solid #ccc !default;
 	}
 
 	&.svtabs-active {
-		background-color: #fff;
-		border-bottom-color: #fff;
+		background-color: $tab-bg-on;
+		border-bottom-color: $tab-bg-on;
 	}
 
 	> a {
