@@ -1,7 +1,7 @@
-$spacing-unit:  15px;
+$spacing-unit:  15px !default;
 $base-border:   1px solid #ccc !default;
-$tab-bg-on:     #fff;
-$tab-bg-off:    #eee;
+$tab-bg-on:     #fff !default;
+$tab-bg-off:    #eee !default;
 
 /*-------------------------*\
 |	CORE STYLES
