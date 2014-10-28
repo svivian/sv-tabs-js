@@ -4,7 +4,8 @@
 		return this.each(function () {
 			options = $.extend({
 				hideSingle: false,
-				equalHeight: false
+				equalHeight: false,
+				useAnchors: false
 			}, options);
 
 			// Cache jQuery objects.
@@ -23,7 +24,8 @@
 			// Add click event to each tab. We use a loop here so that we have the correct
 			// index (in the case of non-tab siblings).
 			$allTabs.each(function (i) {
-				var $link = $('a', $(this));
+				var $thisTab = $(this);
+				var $link = $('a', $thisTab);
 				var tabId = $link.attr('href');
 
 				// Manually add absolute positioning so that non-JS users don't get overlapping panels.
@@ -38,6 +40,15 @@
 					$allTabs.eq(i).addClass('svtabs-active');
 					$(tabId).removeClass('svtabs-panel-hidden');
 
+					// Add clicked tab to hashbang anchor (except first one)
+					if (options.useAnchors && history.replaceState) {
+						if ($thisTab.index() > 0)
+							history.replaceState(null, null, tabId.replace('#', '#!'));
+						else
+							history.replaceState(null, null, '');
+					}
+
+					// Prevent anchor jumping
 					ev.preventDefault();
 				});
 			});
@@ -59,8 +70,16 @@
 				$wrapper.find('>.svtabs-panel-list').height(maxHeight);
 			}
 
-			// Set first tab to active.
-			$allTabs.eq(0).find('a').click();
+			// Set previously selected tab (or first tab otherwise) to active.
+			var currTab = location.hash;
+			if (options.useAnchors && currTab) {
+				var tabId = currTab.replace('#!', '#');
+				$('[href="'+tabId+'"]', $allTabs).click();
+			}
+			else {
+				$allTabs.eq(0).find('a').click();
+			}
+
 		});
 	};
 })(jQuery);
