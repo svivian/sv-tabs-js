@@ -71,10 +71,10 @@
 			}
 
 			// Set previously selected tab (or first tab otherwise) to active.
-			var currTab = location.hash;
-			if (options.useAnchors && currTab) {
-				var tabId = currTab.replace('#!', '#');
-				$('[href="'+tabId+'"]', $allTabs).click();
+			var tabHash = location.hash.replace('#!', '#');
+			var $matchTab = $('[href="'+tabHash+'"]', $allTabs);
+			if (options.useAnchors && $matchTab.length) {
+				$matchTab.click();
 			}
 			else {
 				$allTabs.eq(0).find('a').click();
