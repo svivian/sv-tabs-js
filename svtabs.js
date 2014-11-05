@@ -40,7 +40,7 @@
 					$allTabs.eq(i).addClass('svtabs-active');
 					$(tabId).removeClass('svtabs-panel-hidden');
 
-					// Add clicked tab to hashbang anchor (except first one)
+					// Add clicked tab to hashbang anchor (except first one).
 					if (options.useAnchors && history.replaceState) {
 						if ($thisTab.index() > 0)
 							history.replaceState(null, null, tabId.replace('#', '#!'));
@@ -48,12 +48,12 @@
 							history.replaceState(null, null, '');
 					}
 
-					// Prevent anchor jumping
+					// Prevent anchor jumping.
 					ev.preventDefault();
 				});
 			});
 
-			// Hide tab if only one
+			// Hide tab if only one.
 			if ( numTabs == 1 && options.hideSingle ) {
 				$wrapper.addClass('svtabs-onetab');
 			}
@@ -77,7 +77,11 @@
 				$matchTab.click();
 			}
 			else {
-				$allTabs.eq(0).find('a').click();
+				// Reset tabs without click.
+				$allTabs.removeClass('svtabs-active');
+				$allPanels.addClass('svtabs-panel-hidden');
+				$allTabs.eq(0).addClass('svtabs-active');
+				$allPanels.eq(0).removeClass('svtabs-panel-hidden');
 			}
 
 		});
