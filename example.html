@@ -2,17 +2,17 @@
 <html>
 <head>
 <title>jQuery svTabs</title>
-<link rel="stylesheet" href="svtabs.min.css">
+<link rel="stylesheet" href="sv-tabs.css?dev">
 <style>
 body {
 	background-color: #4691a0;
 	margin: 0;
 	padding: 50px;
-	font: 14px/1.5 "Open Sans", "Ubuntu", "Trebuchet MS", sans-serif;
+	font: 16px/1.5 "Open Sans", "Ubuntu", "Trebuchet MS", sans-serif;
 }
 .main {
-	width: 600px;
-	min-height: 400px;
+	max-width: 750px;
+	min-height: 500px;
 	margin: 0 auto;
 	padding: 20px;
 	background-color: #fff;
@@ -30,29 +30,34 @@ h1 {
 <div class="main">
 	<h1>jQuery svTabs demo</h1>
 
-	<div class="svtabs-wrapper">
-		<ul class="svtabs-tab-list">
-			<li class="svtabs-tab"><a href="#tab1">Tab 1</a></li>
-			<li class="svtabs-tab"><a href="#tab2">Tab 2: Tab Harder</a></li>
-			<li class="svtabs-tab"><a href="#tab3">3</a></li>
-		</ul>
-		<ul class="svtabs-panel-list">
-			<li id="tab2" class="svtabs-panel">I'll be whatever I wanna do.</li>
-			<li id="tab3" class="svtabs-panel">Interesting. No, wait, the other thing: tedious. Shut up and take my money! OK, if everyone's finished being stupid. And I'd do it again! And perhaps a third time! But that would be it. Throw her in the brig. I'm just glad my fat, ugly mama isn't alive to see this day. File not found. Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel ways about stuff.</li>
-			<li id="tab1" class="svtabs-panel">You may have to metaphorically make a deal with the devil. And by "devil", I mean Robot Devil. And by "metaphorically", I mean get your coat.</li>
-		</ul>
+
+	<div class="sv-tabs-wrapper">
+		<nav class="sv-tabs-tab-list">
+			<a class="sv-tabs-tab active" href="#tab1">Tab 1</a>
+			<a class="sv-tabs-tab" href="#tab2">Tab 2: Tab Harder</a>
+			<a class="sv-tabs-tab" href="#tab3">3</a>
+		</nav>
+		<div class="sv-tabs-panel-list">
+			<div class="sv-tabs-panel" id="tab2">
+				I'll be whatever I wanna do.
+			</div>
+			<div class="sv-tabs-panel" id="tab3">
+				Interesting. No, wait, the other thing: tedious. Shut up and take my money! OK, if everyone's finished being stupid. And I'd do it again! And perhaps a third time! But that would be it. Throw her in the brig. I'm just glad my fat, ugly mama isn't alive to see this day. File not found. Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel ways about stuff.
+			</div>
+			<div class="sv-tabs-panel active" id="tab1">
+				You may have to metaphorically make a deal with the devil. And by "devil", I mean Robot Devil. And by "metaphorically", I mean get your coat.
+			</div>
+		</div>
 	</div>
 
 	<p>Some content after the tabs.</p>
 </div>
 
 
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="svtabs.js?dev"></script>
+<script src="sv-tabs.js?dev"></script>
 <script>
-$(function () {
-	$('.svtabs-wrapper').svTabs();
-});
+var tabSet = document.querySelector('.sv-tabs-wrapper');
+var svTabs = new SV.Tabs(tabSet, {useAnchors: true});
 </script>
 
 </body>
