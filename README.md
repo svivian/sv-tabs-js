@@ -22,9 +22,8 @@ HTML structure:
 JavaScript:
 
 ```js
-var tabSet = document.querySelector('.sv-tabs-wrapper');
-var svTabs = new SV.Tabs(tabSet, {useAnchors: true});
-}
+var tabBlocks = document.querySelector('.sv-tabs-wrapper');
+var svTabs = new SV.Tabs(tabBlocks, {useAnchors: true});
 ```
 
 See `example.html` for a demo. A few notes:
