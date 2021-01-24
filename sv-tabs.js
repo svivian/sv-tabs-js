@@ -14,7 +14,7 @@ SV.Tabs = (function() {
 		};
 		let config = {};
 
-		let allTabs, allPanels;
+		let tabListElem, panelListElem, allTabs, allPanels;
 
 		// public api
 		let methods = {};
@@ -37,19 +37,35 @@ SV.Tabs = (function() {
 				return href.replace('#', '');
 
 			return '';
-		}
+		};
+
+		// calculates height of a (possibly hidden) panel
+		const calcPanelHeight = function(panel) {
+			let display = getComputedStyle(panel).display;
+			if (display !== 'none') {
+				return panel.offsetHeight;
+			}
+
+			panel.style.display = 'block';
+			let height = panel.offsetHeight;
+			panel.style.display = '';
+
+			return height;
+		};
 
 		const init = function() {
-			// tabHolder = tabsWrapper;
 			config = extend(defaultOptions, userConfig);
 
-			tabList = tabsWrapper.querySelector(':scope > .sv-tabs-tab-list');
-			allTabs = tabsWrapper.querySelectorAll(':scope > .sv-tabs-tab-list > .sv-tabs-tab');
-			allPanels = tabsWrapper.querySelectorAll(':scope > .sv-tabs-panel-list > .sv-tabs-panel');
+			let badHtmlMsg = 'HTML structure is incorrect';
+			tabListElem = tabsWrapper.querySelector(':scope > .sv-tabs-tab-list');
+			panelListElem = tabsWrapper.querySelector(':scope > .sv-tabs-panel-list');
+			if (!tabListElem || !panelListElem)
+				throw badHtmlMsg;
 
-			if (!tabList || !allTabs || !allPanels) {
-				throw 'HTML structure is incorrect';
-			}
+			allTabs = tabListElem.querySelectorAll(':scope > .sv-tabs-tab');
+			allPanels = panelListElem.querySelectorAll(':scope > .sv-tabs-panel');
+			if (!allTabs || !allPanels)
+				throw badHtmlMsg;
 
 			// check panels and tabs match
 			const numTabs = allTabs.length;
@@ -59,7 +75,7 @@ SV.Tabs = (function() {
 			}
 
 			// switch tabs on click
-			tabList.addEventListener('click', function(ev) {
+			tabListElem.addEventListener('click', function(ev) {
 				ev.preventDefault();
 
 				let tab = ev.target.closest('.sv-tabs-tab');
@@ -70,12 +86,23 @@ SV.Tabs = (function() {
 				methods.showTab(tabId);
 			});
 
+			if (config.equalHeight) {
+				// calculate tallest tab and set panel wrapper to that height
+				let maxHeight = 0;
+
+				Array.from(allPanels).forEach(function(elem) {
+					let thisHeight = calcPanelHeight(elem);
+					maxHeight = Math.max(maxHeight, thisHeight);
+				});
+
+				panelListElem.style.height = maxHeight + 'px';
+			}
+
+			// activate tab from hash (#tab=ID), otherwise first tab
 			let regex = location.hash.match(/#tab=(.+)/);
 			if (regex) {
-				// activate tab from hash (#tab=ID)
 				methods.showTab(regex[1]);
 			} else if (allTabs[0]) {
-				// activate first tab
 				methods.showTab(getTabId(allTabs[0]))
 			}
 		};
