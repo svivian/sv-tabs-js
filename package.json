@@ -1,0 +1,21 @@
+{
+  "name": "sv-tabs-js",
+  "version": "2.0.0",
+  "description": "A simple JavaScript library for making tabs in HTML",
+  "main": "src/sv-tabs.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svivian/sv-tabs-js.git"
+  },
+  "keywords": [
+    "javascript",
+    "tabs"
+  ],
+  "author": "Scott Vivian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/svivian/sv-tabs-js/issues"
+  },
+  "homepage": "https://github.com/svivian/sv-tabs-js#readme"
+}
