@@ -2,31 +2,33 @@
 SV-Tabs
 =================================================
 
-**sv-tabs-js** is a vanilla JavaScript plugin for displaying tabs.
+**sv-tabs-js** is a vanilla JavaScript plugin for displaying tabs. Quick start:
 
-HTML structure:
+1. Include `src/sv-tabs.js` in a `<script>` tag.
 
-```html
-<div class="sv-tabs-wrapper">
-	<nav class="sv-tabs-tab-list">
-		<a class="sv-tabs-tab active" href="#tab1">Tab 1</a>
-		<a class="sv-tabs-tab" href="#tab2">Tab 2</a>
-	</nav>
-	<div class="sv-tabs-panel-list">
-		<div class="sv-tabs-panel active" id="tab1">Tab 1 content.</div>
-		<div class="sv-tabs-panel" id="tab2">Tab 2 content.</div>
+2. Use this HTML structure:
+
+	```html
+	<div class="sv-tabs-wrapper">
+		<nav class="sv-tabs-tab-list">
+			<a class="sv-tabs-tab active" href="#tab1">Tab 1</a>
+			<a class="sv-tabs-tab" href="#tab2">Tab 2</a>
+		</nav>
+		<div class="sv-tabs-panel-list">
+			<div class="sv-tabs-panel active" id="tab1">Tab 1 content.</div>
+			<div class="sv-tabs-panel" id="tab2">Tab 2 content.</div>
+		</div>
 	</div>
-</div>
-```
+	```
 
-JavaScript:
+3. Initialize the plugin with this JavaScript:
 
-```js
-let tabBlocks = document.querySelector('.sv-tabs-wrapper');
-let svTabs = new SV.Tabs(tabBlocks, {useAnchors: true});
-```
+	```js
+	let tabBlocks = document.querySelector('.sv-tabs-wrapper');
+	let svTabs = new SV.Tabs(tabBlocks, {useAnchors: true});
+	```
 
-See `example.html` for a demo. A few notes:
+See `demo/example.html` for a demo. A few notes:
 
 - The first tab in the list will automatically be set to be active initially. However, it's recommended to add the "active" class to the HTML if possible (tab and panel), to avoid "FOUT" (Flash Of *Unactivated Tabs*).
 
@@ -40,4 +42,4 @@ See `example.html` for a demo. A few notes:
 
 - The plugin currently has 1 method, `showTab` which manually shows a particular tab given its ID, e.g. `svTabs.showTab('tab2')` in the above example.
 
-- The CSS is generated from the Sass file `svtabs.scss`. Several variables are defined which can be overridden if importing the Sass file.
+- The CSS is generated from the Sass file `src/svtabs.scss`. Several variables are defined which can be overridden if importing the Sass file.
