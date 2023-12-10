@@ -21,15 +21,6 @@ SV.Tabs = (function() {
 
 		// private methods
 
-		// override default options with user config
-		const extend = function(defaults, userArgs) {
-			for (let i in userArgs) {
-				defaults[i] = userArgs[i];
-			}
-
-			return defaults;
-		};
-
 		// get tab ID from element
 		const getTabId = function(elem) {
 			let href = elem.getAttribute('href');
@@ -54,7 +45,7 @@ SV.Tabs = (function() {
 		};
 
 		const init = function() {
-			config = extend(defaultOptions, userConfig);
+			config = Object.assign({}, defaultOptions, userConfig);
 
 			let badHtmlMsg = 'HTML structure is incorrect';
 			tabListElem = tabsWrapper.querySelector(':scope > .sv-tabs-tab-list');

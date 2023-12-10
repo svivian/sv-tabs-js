@@ -1,5 +1,5 @@
 
-sv-tabs-js
+SV-Tabs
 =================================================
 
 **sv-tabs-js** is a vanilla JavaScript plugin for displaying tabs.
@@ -22,16 +22,22 @@ HTML structure:
 JavaScript:
 
 ```js
-var tabBlocks = document.querySelector('.sv-tabs-wrapper');
-var svTabs = new SV.Tabs(tabBlocks, {useAnchors: true});
+let tabBlocks = document.querySelector('.sv-tabs-wrapper');
+let svTabs = new SV.Tabs(tabBlocks, {useAnchors: true});
 ```
 
 See `example.html` for a demo. A few notes:
 
-- The first tab in the list will automatically be set to be active initially. However, it's recommended to add the "active" class to the HTML if possible (tab and panel), to avoid FOUT (Flash Of Unactivated Tabs).
+- The first tab in the list will automatically be set to be active initially. However, it's recommended to add the "active" class to the HTML if possible (tab and panel), to avoid "FOUT" (Flash Of *Unactivated Tabs*).
+
 - The anchor link on a tab must target an ID of one of the panels, i.e. `<a href="#mytabname">` would target `<li id="mytabname">`.
-- The panels can appear in any order in the source. The anchor will show the tab with the corresponding ID, wherever it is.
+
+- The panels can appear in any order in the source (although this is not recommended). The anchor will show the tab with the corresponding ID, wherever it is.
+
 - The `useAnchors` option will add "hashtag anchors" to the URL, and load the appropriate tab when the page is reloaded or the users navigates away then comes back. Pass `{useAnchors: true}` in the options parameter to use it.
+
 - The `equalHeight` option will set all tabs to be the same height; this prevents subsequent content from shifting up and down when tabs are clicked. Pass `{equalHeight: true}` in the options parameter to use it.
+
 - The plugin currently has 1 method, `showTab` which manually shows a particular tab given its ID, e.g. `svTabs.showTab('tab2')` in the above example.
+
 - The CSS is generated from the Sass file `svtabs.scss`. Several variables are defined which can be overridden if importing the Sass file.
