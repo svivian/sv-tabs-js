@@ -1,6 +1,8 @@
 // Tabs styles
 
-// Compile with `sass sv-tabs.scss:sv-tabs.css --no-source-map`
+// Compile (dart-sass) with `sass sv-tabs.scss sv-tabs.css --no-source-map`
+
+@use "sass:math";
 
 $spacing-unit: 16px !default;
 $base-border: 1px solid #ccc !default;
@@ -27,8 +29,8 @@ $tab-text-off: #666 !default;
 .sv-tabs-tab {
 	list-style: none;
 	min-width: 100px;
-	margin: 0 0 -1px ($spacing-unit / 4);
-	padding: ($spacing-unit / 4) $spacing-unit;
+	margin: 0 0 -1px math.div($spacing-unit, 4);
+	padding: math.div($spacing-unit, 4) $spacing-unit;
 
 	border: $base-border;
 	border-radius: $bd-rad $bd-rad 0 0;
