@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>JavaScript sv-tabs demo</title>
-<link rel="stylesheet" href="sv-tabs.css?dev">
-<style>
-body {
-	background-color: #4691a0;
-	margin: 0;
-	padding: 50px;
-	font: 16px/1.5 "Open Sans", "Ubuntu", "Trebuchet MS", sans-serif;
-}
-.main {
-	max-width: 750px;
-	min-height: 500px;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: #fff;
-	border: 2px solid #333;
-}
-h1 {
-	margin: 0 0 1em;
-	font-family: "Open Sans Condensed", "Ubuntu", "Trebuchet MS", sans-serif;
-}
-</style>
+	<title>JavaScript sv-tabs demo</title>
+	<link rel="stylesheet" href="sv-tabs.css?dev">
+	<style>
+		html, body {
+			min-height: 100%;
+		}
+		body {
+			margin: 0;
+			padding: 50px;
+			background: #00527a repeating-conic-gradient(at center bottom, #00527a 2deg 12deg, #004b70 12deg 22deg);
+			font: 16px/1.5 system-ui, "Open Sans", "Ubuntu", "Trebuchet MS", sans-serif;
+		}
+		main {
+			max-width: 750px;
+			min-height: 500px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 6px 12px rgb(0 0 0 / 0.2);
+		}
+		h1 {
+			margin: 0 0 1em;
+			font-family: "Open Sans Condensed", "Ubuntu", "Trebuchet MS", sans-serif;
+		}
+	</style>
 </head>
 
 <body>
 
-<div class="main">
+<main>
 	<h1>JavaScript sv-tabs demo</h1>
 
 	<div class="sv-tabs-wrapper">
@@ -50,7 +53,7 @@ h1 {
 	</div>
 
 	<p>Some content after the tabs.</p>
-</div>
+</main>
 
 
 <script src="../src/sv-tabs.js?dev"></script>

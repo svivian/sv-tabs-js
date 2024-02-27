@@ -45,8 +45,10 @@ SV.Tabs = (function() {
 		};
 
 		const init = function() {
+			// merge config
 			config = Object.assign({}, defaultOptions, userConfig);
 
+			// validation
 			let badHtmlMsg = 'HTML structure is incorrect';
 			tabListElem = tabsWrapper.querySelector(':scope > .sv-tabs-tab-list');
 			panelListElem = tabsWrapper.querySelector(':scope > .sv-tabs-panel-list');

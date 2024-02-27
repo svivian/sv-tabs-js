@@ -42,6 +42,12 @@ Alternatively, you can download or link to a minified version via [jsDelivr](htt
 	- `.sv-tabs-panel-list` - the container for the panel elements
 	- `.sv-tabs-panel` - the panel elements, which contain the content for each tab, and must have an ID that matches the tab's `href`
 
+2. Style the tabs and panels as desired. Some basic CSS can be found in `demo/sv-tabs.css`, which includes custom properties (variables) that can be modified to suit.
+
+	```html
+	<link rel="stylesheet" href="/path/to/sv-tabs.css">
+	```
+
 2. Include the SV-Tabs script in your page's `<head>`. For performance reasons we are using the `defer` attribute:
 
 	```html
@@ -82,5 +88,3 @@ SV-Tabs has 1 method, `showTab` which manually shows a particular tab given its 
 The first tab in the list will automatically be set to be active initially. However, it's recommended to add the "active" class to the HTML if possible (tab and panel), to avoid "FOUT" (Flash Of *Unactivated Tabs*).
 
 The panels can appear in any order in the source (although this is not recommended). The anchor will show the tab with the corresponding ID, wherever it is.
-
-The CSS is generated from the Sass file `src/svtabs.scss`. Several variables are defined which can be overridden if importing the Sass file.
