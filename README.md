@@ -42,7 +42,7 @@ Alternatively, you can download or link to a minified version via [jsDelivr](htt
 	- `.sv-tabs-panel-list` - the container for the panel elements
 	- `.sv-tabs-panel` - the panel elements, which contain the content for each tab, and must have an ID that matches the tab's `href`
 
-2. Style the tabs and panels as desired. Some basic CSS can be found in `demo/sv-tabs.css`, which includes custom properties (variables) that can be modified to suit.
+2. Style the tabs and panels as desired. Some basic CSS can be found in `src/sv-tabs.css`, which includes custom properties (variables) that can be modified to suit. (The Sass file is now deprecated and will be removed in a future version.)
 
 	```html
 	<link rel="stylesheet" href="/path/to/sv-tabs.css">
